@@ -1,5 +1,24 @@
 const JoinUs = require('../models/joinUsSchema.js');
 
+
+exports.getJoinUs = async (req, res) => {
+    try {
+        const myJoinUs = await JoinUs.find();
+
+        if (!myJoinUs) {
+            return res.status(404).json({ error: 'Join us data not found' });
+        }
+
+        res.status(200).json(myJoinUs);
+    } catch (error) {
+        console.error('Error:', error);
+
+        return res.status(500).json({ error: 'An error occurred while getting the Join us data' });
+    }
+}
+
+
+
 exports.postJoinUs = async (req, res) => {
     try {
 
@@ -27,4 +46,3 @@ exports.postJoinUs = async (req, res) => {
 }
 
 
-// module.exports = postJoinUs;

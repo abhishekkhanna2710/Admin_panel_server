@@ -3,9 +3,10 @@ const router = express.Router();
 
 
 // const { postJoinUs } = require("../controllers/join_us.controller.js");
-const { postJoinUs } = require("../controllers/join_us.controller")
+const { postJoinUs, getJoinUs } = require("../controllers/join_us.controller")
 
 router.route('/').post(postJoinUs);
+router.route('/').get(getJoinUs);
 
 
 module.exports = router;
